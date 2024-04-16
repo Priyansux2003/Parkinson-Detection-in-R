@@ -53,16 +53,12 @@ confusion_matrix <- confusionMatrix(data = predictions, reference = Y_test)
 # Output the confusion matrix
 print(confusion_matrix)
 
-# Extract and output precision, recall, and f1-score
-precision <- confusion_matrix$overall['Precision']
-recall <- confusion_matrix$overall['Recall']
-f1_score <- confusion_matrix$overall['F1']
-support <- confusion_matrix$overall['Support']
+# Extract overall metrics from confusion matrix
+precision <- confusion_matrix$overall["Precision"]
+recall <- confusion_matrix$overall["Recall"]
+f1_score <- confusion_matrix$overall["F1"]
+support <- confusion_matrix$overall["Support"]
 
-# Output classification report
-cat("\nClassification Report:\n")
-cat(sprintf("\n%-10s %-10s %-10s %-10s %-10s\n", "Class", "Precision", "Recall", "F1-Score", "Support"))
-cat(sprintf("\n%-10s %-10.2f %-10.2f %-10.2f %-10.2f\n", "0", precision, recall, f1_score, support))
 
 # Example input data for prediction
 input_data <- c(203.18400, 211.52600, 196.16000, 0.00178, 0.000009, 0.00094, 0.00106, 0.00283, 0.00958, 0.08500, 0.00468, 0.00610, 0.00726, 0.01403, 0.00065, 33.04700, 0.340068, 0.741899, -7.964984, 0.163519, 1.423287, 0.044539)
